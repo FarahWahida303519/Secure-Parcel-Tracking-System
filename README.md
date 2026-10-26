@@ -4,6 +4,8 @@ A local, integrated STTCK3033 assignment application for **three members**. Pyth
 
 ## Run on Windows
 
+For the prepared workspace, double-click **START_PARCELTRACK.bat** in Windows Explorer. It starts the server on an available local port, opens the tracking page after it responds, and keeps the server console visible. Keep that window open while using the website. If the browser reports a connection timeout after a tool-started preview, use this launcher directly from Windows. For a fresh copy, install dependencies using the steps below first.
+
 Python 3.11+ recommended. In this directory:
 
 ```powershell

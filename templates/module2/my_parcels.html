@@ -1,0 +1,5 @@
+{% extends 'module2/layout.html' %}
+{% block content %}
+<div class="page-heading"><div><span class="eyebrow">YOUR DAY, DELIVERED</span><h1>All your parcels.</h1><p class="subtext">Every journey, neatly in one place.</p></div><a class="button" href="/parcels/new">＋ New parcel</a></div>
+<section class="panel"><form method="get" action="/parcels"><label for="search" class="subtext">Search tracking number or recipient</label><div class="search-row"><input id="search" name="q" class="search" value="{{ request.args.get('q','') }}" maxlength="100" placeholder="Find a parcel…"><button class="button">Search</button></div></form>{% include 'shared/parcel_table.html' %}<p class="privacy-note">Showing up to 200 matching parcels. Only your own parcels are available here.</p></section>
+{% endblock %}

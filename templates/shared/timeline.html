@@ -1,0 +1,1 @@
+<ol class="timeline">{% for h in history %}<li><strong>{{ h.status }}</strong><time datetime="{{ h.created }}">{{ h.created|replace('T',' ')|replace('Z',' UTC') }}</time></li>{% endfor %}</ol>

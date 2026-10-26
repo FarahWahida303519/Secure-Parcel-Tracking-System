@@ -1,0 +1,4 @@
+<div class="table-wrap"><table><thead><tr><th>Tracking number</th><th>Recipient</th><th>Status</th><th>Weight</th><th></th></tr></thead><tbody>
+{# M2 SECURITY: Jinja autoescaping encodes recipient-controlled text. #}
+{% for p in parcels %}<tr><td><span class="tracking" title="{{ p.tracking }}">{{ p.tracking }}</span></td><td>{{ p.name }}</td><td><span class="badge {{ p.status|lower|replace(' ','-') }}">{{ p.status }}</span></td><td>{{ p.weight }} kg</td><td><a class="link-button" href="{{ '/parcels/' if g.user['role']=='seller' else '/deliveries/' }}{{ p.id }}">View ↗</a></td></tr>{% else %}<tr><td colspan="5"><div class="empty">⬡<br>No parcels here yet.<br>Your next delivery starts with a little hello.</div></td></tr>{% endfor %}
+</tbody></table></div>

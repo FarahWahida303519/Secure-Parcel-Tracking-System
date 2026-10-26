@@ -1,0 +1,4 @@
+{% extends 'module3/layout.html' %}
+{% block content %}
+<div class="page-heading"><div><span class="eyebrow">THE BIGGER PICTURE</span><h1>Your delivery overview.</h1><p class="subtext">Every parcel, every step, in one place.</p></div><a class="button" href="/deliveries">Manage deliveries ↗</a></div><section class="stats dashboard-stats">{% for status in statuses %}<div class="stat"><div class="stat-top">{{ status }}</div><div class="stat-number">{{ counts.get(status,0) }}</div></div>{% endfor %}</section><section class="panel"><h2>Recent activity</h2><div class="table-wrap"><table><thead><tr><th>Event</th><th>Account ID</th><th>Time (UTC)</th></tr></thead><tbody>{% for e in events %}<tr><td>{{ e.event|replace('_',' ') }}</td><td>{{ e.actor_id or '—' }}</td><td>{{ e.created }}</td></tr>{% else %}<tr><td colspan="3">No activity yet.</td></tr>{% endfor %}</tbody></table></div></section>
+{% endblock %}

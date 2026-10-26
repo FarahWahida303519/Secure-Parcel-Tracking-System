@@ -1,0 +1,4 @@
+{% extends 'module1/layout.html' %}
+{% block content %}
+<section class="panel auth-card"><span class="eyebrow">WELCOME TO PARCELTRACK</span><h1>Good things start here.</h1><form id="register-form"><label class="field">Your name<input name="name" type="text" minlength="2" maxlength="80" required></label><label class="field">Email address<input name="email" type="email" maxlength="150" autocomplete="username" required></label><label class="field">Password<input name="password" type="password" minlength="10" maxlength="128" autocomplete="new-password" required></label><p class="privacy-note">Use a unique password of at least 10 characters.</p><button class="button">Create seller account ↗</button></form><p class="auth-switch">Already registered? <a href="/login">Sign in</a></p></section>
+{% endblock %}

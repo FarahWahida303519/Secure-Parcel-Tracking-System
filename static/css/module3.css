@@ -1,0 +1,2 @@
+/* Member 3: delivery workspace and administrator dashboard. */
+.dashboard-stats{grid-template-columns:repeat(5,1fr)}@media(max-width:900px){.dashboard-stats{grid-template-columns:repeat(2,1fr)}}

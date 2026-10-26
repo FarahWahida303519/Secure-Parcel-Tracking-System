@@ -1,0 +1,5 @@
+{% extends 'module2/layout.html' %}
+{% block content %}
+<div class="page-heading"><div><span class="eyebrow">A NEW JOURNEY</span><h1>Send a little happiness.</h1><p class="subtext">Tell us a little about your delivery.</p></div><a class="button secondary" href="/parcels">My parcels</a></div>
+<section class="panel parcel-form-panel"><form id="parcel-form"><div class="form-grid"><label class="field">Recipient name<input name="name" type="text" minlength="2" maxlength="80" required></label><label class="field">Phone number<input name="phone" type="tel" pattern="\+?[0-9]{9,15}" maxlength="16" placeholder="+60123456789" required></label><label class="field">Weight (kg)<input name="weight" type="number" min="0.001" max="50" step="0.001" placeholder="0.5" required></label><label class="field full">Delivery address<textarea name="address" minlength="10" maxlength="500" placeholder="Street, postcode, city and state" required></textarea></label></div><p class="privacy-note">◈ Recipient details are shared only with your delivery team.</p><button class="button">Register parcel ↗</button></form><div id="registration-result" role="status"></div></section>
+{% endblock %}

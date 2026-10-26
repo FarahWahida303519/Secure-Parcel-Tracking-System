@@ -1,0 +1,4 @@
+{% extends 'module3/layout.html' %}
+{% block content %}
+<div class="page-heading"><div><span class="eyebrow">KEEP GOOD THINGS MOVING</span><h1>{{ 'Every delivery.' if g.user['role']=='admin' else 'Your delivery route.' }}</h1><p class="subtext">{{ 'Assign riders and follow every journey.' if g.user['role']=='admin' else 'Only parcels assigned to you appear here.' }}</p></div></div><section class="panel">{% include 'shared/parcel_table.html' %}</section>
+{% endblock %}

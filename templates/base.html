@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="csrf-token" content="{{ g.user['csrf'] if g.user else '' }}">
+  <title>{{ title }} · ParcelTrack</title>
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/shared.css') }}">
+  {% block styles %}{% endblock %}
+  <script src="{{ url_for('static',filename='js/shared.js') }}" defer></script>
+  {% block scripts %}{% endblock %}
+</head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="/"><span class="brand-icon">⬡</span> Parcel<span>Track</span><small>BY KIRIMCEPAT</small></a>
+  <div class="workspace-label">YOUR WORKSPACE</div>
+  <nav aria-label="Main navigation">
+    <a href="/" class="{{ 'active' if request.path=='/' }}"><span>◫</span> Overview</a>
+    {% if g.user %}
+      {% if g.user['role']=='seller' %}<a href="/parcels" class="{{ 'active' if request.path.startswith('/parcels') }}"><span>⬡</span> My parcels</a>{% else %}<a href="/deliveries" class="{{ 'active' if request.path.startswith('/deliveries') }}"><span>⬡</span> Deliveries</a>{% endif %}
+      {% if g.user['role']=='admin' %}<a href="/dashboard"><span>◫</span> Dashboard</a><a href="/users"><span>♧</span> User management</a>{% endif %}
+    {% endif %}
+    <a href="/track" class="{{ 'active' if request.path=='/track' }}"><span>⌕</span> Track a parcel</a>
+    <a href="{{ '/account' if g.user else '/login' }}"><span>↗</span> {{ 'Account' if g.user else 'Sign in' }}</a>
+  </nav>
+  <div class="sidebar-bottom"><div class="mini-box">↗</div><strong>Good things are on the way.</strong><p>A little care. Every parcel.</p><span class="region">● &nbsp; Made for Northern Malaysia</span></div>
+</aside>
+<div class="main"><header><div class="breadcrumb">Workspace <span>/</span> <strong>{{ title }}</strong></div><div class="header-right"><span class="secure-pill">◈ &nbsp; Private by design</span><a class="avatar" href="{{ '/account' if g.user else '/login' }}" aria-label="Account">{{ g.user['name'][0]|upper if g.user else '↗' }}</a></div></header>
+<main id="content">{% block content %}{% endblock %}</main>
+<footer><span>© 2026 KirimCepat Sdn. Bhd. · ParcelTrack Lite</span><span>Small parcels. Big possibilities. ↗</span></footer></div>
+<div id="toast" role="status" aria-live="polite"></div>
+</body></html>

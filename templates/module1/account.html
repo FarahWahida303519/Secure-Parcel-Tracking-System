@@ -1,0 +1,4 @@
+{% extends 'module1/layout.html' %}
+{% block content %}
+<section class="panel auth-card"><h1>Your little corner.</h1><h2>{{ g.user["name"] }}</h2><p class="subtext">{{ g.user["email"] }} · {{ g.user["role"] }}</p><form id="password-form"><label class="field">Current password<input name="current" type="password" maxlength="128" autocomplete="current-password" required></label><label class="field">Password<input name="password" type="password" minlength="10" maxlength="128" autocomplete="new-password" required></label><button class="button">Change password</button></form><button class="button secondary section-gap" id="logout">Sign out ↗</button></section>
+{% endblock %}

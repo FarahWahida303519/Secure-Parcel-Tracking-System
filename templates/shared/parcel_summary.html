@@ -1,0 +1,5 @@
+{# M2 SECURITY: no |safe filter on private recipient details. #}
+<p class="tracking-full">{{ parcel.tracking }}</p><span class="badge {{ parcel.status|lower|replace(' ','-') }}">{{ parcel.status }}</span>
+<dl class="details">{% for label,key in [('Recipient','name'),('Phone','phone'),('Address','address'),('Weight (kg)','weight')] %}<div><dt>{{ label }}</dt><dd>{{ parcel[key] }}</dd></div>{% endfor %}</dl>
+{% if parcel.proof %}<a class="link-button" href="/api/parcels/{{ parcel.id }}/proof" target="_blank" rel="noopener">View proof photo ↗</a>{% endif %}
+{% include 'shared/timeline.html' %}

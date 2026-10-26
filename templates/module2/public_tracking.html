@@ -1,0 +1,4 @@
+{% extends 'module2/layout.html' %}
+{% block content %}
+<div class="page-heading"><div><span class="eyebrow">A LITTLE CLOSER, EVERY DAY</span><h1>Follow the journey.</h1><p class="subtext">From the first hello to the final doorstep.</p></div></div><section class="panel tracking-panel tracking-page"><div class="round-icon">⌕</div><h2>Where's your parcel?</h2><p class="subtext">A quick check. A little peace of mind.</p><form id="track-form"><label class="field section-gap">Tracking number<input name="number" maxlength="35" placeholder="KC- followed by 32 characters" autocomplete="off" required></label><button class="button">Track parcel ↗</button></form><p class="privacy-note">◈ Tracking shows delivery status and time only. Your personal details stay private.</p><div id="tracking-result" aria-live="polite"></div></section>
+{% endblock %}

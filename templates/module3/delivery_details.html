@@ -1,0 +1,7 @@
+{% extends 'module3/layout.html' %}
+{% block content %}
+<div class="page-heading"><h1>Delivery details.</h1><a class="button secondary" href="/deliveries">Back to deliveries</a></div><div class="grid"><section class="panel">{% include 'shared/parcel_summary.html' %}</section><section class="panel">
+{% if g.user['role']=='admin' and parcel.status=='Registered' %}<h2>Assign a rider</h2><form id="assign-form" data-parcel-id="{{ parcel.id }}"><label class="field">Rider<select name="rider_id" required><option value="">Choose an active rider</option>{% for r in riders %}<option value="{{ r.id }}">{{ r.name }}</option>{% endfor %}</select></label><button class="button">Assign rider ↗</button></form>
+{% elif g.user['role']=='rider' and parcel.status in ['Assigned','Out for Delivery'] %}<h2>Next delivery step</h2><form id="status-form" data-parcel-id="{{ parcel.id }}"><label class="field">Status<select name="status">{% for s in (['Out for Delivery'] if parcel.status=='Assigned' else ['Delivered','Failed']) %}<option>{{ s }}</option>{% endfor %}</select></label>{% if parcel.status=='Out for Delivery' %}<label class="field">Proof photo (JPG/PNG, max 2 MB)<input name="proof" type="file" accept="image/jpeg,image/png" required></label>{% endif %}<button class="button">Update delivery ↗</button></form>
+{% else %}<h2>All up to date.</h2><p class="subtext">No delivery action is available at this step.</p>{% endif %}</section></div>
+{% endblock %}
